@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Little Wrangler Ranch Camp | Fort Worth, Texas</title>
+  <meta name="description" content="One-on-one horseback riding, ranch life, and western adventures for kids ages 5–12 at SDP Buffalo Ranch in Fort Worth, Texas." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #F5EDD8;
+      --cream-dark: #EAD9B8;
+      --gold:       #E8A020;
+      --gold-light: #F5C050;
+      --brown:      #8B4F2A;
+      --brown-dark: #5C2D0E;
+      --text:       #2C1508;
+      --tan:        #C9A96E;
+      --white:      #FFFDF7;
+      --shadow:     rgba(44, 21, 8, 0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 { font-family: 'Rye', serif; line-height: 1.2; }
+    h4, h5     { font-family: 'Playfair Display', serif; }
+
+    img { max-width: 100%; display: block; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ── UTILITY ─────────────────────────────────── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-label {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--brown-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--brown);
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      border: none;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--shadow); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--brown);
+      color: var(--cream);
+    }
+    .btn-primary:hover { background: var(--brown-dark); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--brown-dark);
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      border: 2px solid var(--cream);
+    }
+    .btn-outline:hover { background: var(--cream); color: var(--brown-dark); }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      color: var(--tan);
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      border-top: 1px solid var(--tan);
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--brown-dark);
+      padding: 1rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Rye', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--cream);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-book {
+      background: var(--gold);
+      color: var(--brown-dark) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+    }
+    .nav-book:hover { background: var(--gold-light) !important; color: var(--brown-dark) !important; }
+
+    /* ── HERO ────────────────────────────────────── */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        var(--brown-dark) 0%,
+        #7A3A18 50%,
+        #4A2208 100%
+      );
+    }
+
+    /* Photo placeholder – swap src once you have a real image */
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      opacity: 0.35;
+      filter: saturate(0.8);
+    }
+
+    .hero-photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+    .hero-photo-placeholder svg { width: 80px; height: 80px; fill: var(--cream); }
+    .hero-photo-placeholder span {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      color: var(--cream);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex: 1;
+      padding: 5rem 1.5rem 3rem;
+      gap: 1.5rem;
+    }
+
+    .hero-logo {
+      width: min(260px, 65vw);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(255,255,255,0.1), 0 8px 40px rgba(0,0,0,0.4);
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      color: var(--white);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--cream-dark);
+      max-width: 560px;
+      font-style: italic;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1.5rem 2rem;
+      background: rgba(0,0,0,0.25);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      text-align: center;
+      color: var(--cream);
+    }
+    .hero-badge-num {
+      font-family: 'Rye', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      display: block;
+    }
+    .hero-badge-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    /* ── ABOUT ───────────────────────────────────── */
+    .about {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    /* Photo placeholder style */
+    .photo-frame {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px var(--shadow);
+      aspect-ratio: 4/5;
+      background: var(--cream-dark);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--tan);
+      padding: 2rem;
+      text-align: center;
+    }
+    .photo-placeholder svg { width: 64px; height: 64px; fill: var(--tan); }
+    .photo-placeholder p {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .photo-frame-accent {
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 100%;
+      height: 100%;
+      border: 3px solid var(--gold);
+      border-radius: 8px;
+      z-index: -1;
+    }
+
+    /* ── VIDEO ───────────────────────────────────── */
+    .about-video-row {
+      margin-top: 4rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .video-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px var(--shadow);
+      background: #000;
+      width: min(320px, 85vw);
+      aspect-ratio: 9/16;
+      flex-shrink: 0;
+    }
+
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-caption {
+      max-width: 380px;
+    }
+
+    .video-caption h4 {
+      font-size: 1.5rem;
+      color: var(--brown-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .video-caption p {
+      font-size: 1rem;
+      color: var(--brown);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 760px) {
+      .about-video-row { flex-direction: column; align-items: center; }
+      .video-caption { max-width: 100%; text-align: center; }
+    }
+
+    .about-text .section-subtitle { max-width: 100%; }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      color: var(--brown);
+      font-size: 1.05rem;
+    }
+
+    .about-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .about-detail:last-child { border-bottom: none; }
+
+    .about-detail-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      width: 2.5rem;
+      text-align: center;
+    }
+
+    .about-detail-text strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--brown-dark);
+      margin-bottom: 0.15rem;
+    }
+    .about-detail-text span { font-size: 0.95rem; color: var(--brown); }
+
+    /* ── PACKAGES ────────────────────────────────── */
+    .packages {
+      padding: 6rem 0;
+      background: var(--cream);
+      position: relative;
+    }
+
+    .packages-header { text-align: center; margin-bottom: 3.5rem; }
+    .packages-header .section-subtitle { margin: 0 auto; }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .package-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .package-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px var(--shadow);
+    }
+
+    .package-card.featured {
+      border: 3px solid var(--gold);
+      transform: scale(1.03);
+    }
+    .package-card.featured:hover { transform: scale(1.03) translateY(-6px); }
+
+    .featured-badge {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--brown-dark);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 1.2rem;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .package-header {
+      padding: 2.2rem 1.8rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .package-icon { font-size: 2.8rem; margin-bottom: 0.5rem; }
+
+    .package-name {
+      font-family: 'Rye', serif;
+      font-size: 1.35rem;
+      color: var(--brown-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .package-duration {
+      font-size: 0.85rem;
+      color: var(--tan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
+    .package-price {
+      margin: 1.2rem 0 0.3rem;
+    }
+    .package-price-num {
+      font-family: 'Rye', serif;
+      font-size: 2.8rem;
+      color: var(--brown);
+    }
+    .package-price-per {
+      font-size: 0.85rem;
+      color: var(--tan);
+    }
+
+    .package-body {
+      padding: 1.5rem 1.8rem;
+      flex: 1;
+    }
+
+    .package-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .package-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      color: var(--brown);
+    }
+
+    .check { color: var(--gold); font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .package-footer {
+      padding: 0 1.8rem 2rem;
+    }
+    .package-footer .btn { width: 100%; text-align: center; }
+
+    /* ── ADDONS ──────────────────────────────────── */
+    .addons {
+      padding: 5rem 0;
+      background: var(--brown-dark);
+      color: var(--cream);
+    }
+
+    .addons-header { text-align: center; margin-bottom: 3rem; }
+    .addons-header .section-label { color: var(--gold-light); }
+    .addons-header .section-title { color: var(--cream); }
+
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .addon-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .addon-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+
+    .addon-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .addon-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+    .addon-price {
+      font-family: 'Rye', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+    .addon-desc { font-size: 0.85rem; color: rgba(245,237,216,0.7); margin-top: 0.3rem; }
+
+    /* ── DAILY LIFE ──────────────────────────────── */
+    .daily {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .daily-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .daily-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .daily-card {
+      padding: 2rem;
+      border-radius: 8px;
+      background: var(--cream);
+      border-top: 4px solid var(--gold);
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .daily-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+    .daily-card h4 {
+      font-size: 1rem;
+      color: var(--brown-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .daily-card p {
+      font-size: 0.9rem;
+      color: var(--brown);
+      line-height: 1.6;
+    }
+
+    /* ── GALLERY ─────────────────────────────────── */
+    .gallery {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+
+    .gallery-header { text-align: center; margin-bottom: 3rem; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px var(--shadow);
+      background: var(--cream-dark);
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .gallery-item.tall { grid-row: span 2; aspect-ratio: auto; min-height: 400px; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--tan);
+      padding: 1rem;
+      text-align: center;
+    }
+    .gallery-placeholder svg { width: 40px; height: 40px; fill: var(--tan); }
+    .gallery-placeholder p {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ── SAFETY ──────────────────────────────────── */
+    .safety {
+      padding: 5rem 0;
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .safety-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .safety-text .section-label { color: var(--gold-light); }
+    .safety-text .section-title { color: var(--cream); }
+
+    .safety-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .safety-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .safety-list li::before {
+      content: '★';
+      color: var(--gold);
+      flex-shrink: 0;
+      font-size: 0.85rem;
+      margin-top: 0.1rem;
+    }
+
+    .waiver-card {
+      background: rgba(0,0,0,0.25);
+      border: 2px solid var(--gold);
+      border-radius: 10px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .waiver-card h4 {
+      font-family: 'Rye', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .waiver-card p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .waiver-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+    /* ── POLICIES ────────────────────────────────── */
+    .policies {
+      padding: 5rem 0;
+      background: var(--cream-dark);
+    }
+
+    .policies-header { text-align: center; margin-bottom: 3rem; }
+
+    .policies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .policy-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.8rem;
+      box-shadow: 0 2px 10px var(--shadow);
+    }
+
+    .policy-card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+
+    .policy-card h4 {
+      color: var(--brown-dark);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-card p { font-size: 0.9rem; color: var(--brown); line-height: 1.6; }
+
+    /* ── CONTACT ─────────────────────────────────── */
+    .contact {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info .section-subtitle { max-width: 100%; margin-bottom: 2rem; }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 1rem;
+    }
+    .contact-detail:last-child { border-bottom: none; }
+    .contact-detail-icon { font-size: 1.4rem; width: 2rem; text-align: center; }
+    .contact-detail a { color: var(--brown); font-weight: 700; transition: color 0.15s; }
+    .contact-detail a:hover { color: var(--gold); }
+
+    /* Form */
+    .form-card {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+
+    .form-card h3 {
+      font-size: 1.5rem;
+      color: var(--brown-dark);
+      margin-bottom: 0.5rem;
+    }
+    .form-card p { font-size: 0.9rem; color: var(--brown); margin-bottom: 1.5rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { margin-bottom: 1.1rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brown-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: 5px;
+      background: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.2);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238B4F2A' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-submit { width: 100%; padding: 1rem; font-size: 1rem; margin-top: 0.5rem; }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    .footer {
+      background: var(--brown-dark);
+      color: var(--cream);
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Rye', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-sub {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--cream);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+    .footer-links a:hover { opacity: 1; color: var(--gold); }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .packages-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+      .package-card.featured { transform: scale(1); }
+      .package-card.featured:hover { transform: translateY(-6px); }
+      .about-grid { grid-template-columns: 1fr; }
+      .photo-frame { max-width: 400px; margin: 0 auto; }
+      .safety-inner { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.tall { grid-row: span 1; aspect-ratio: 4/3; min-height: auto; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero-badges { gap: 1.5rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-logo { width: min(200px, 55vw); }
+    }
+
+    /* ── SCROLL ANIMATIONS ───────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <span class="nav-logo">&#x1F40E; Little Wrangler Ranch Camp</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#daily">Camp Life</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#contact" class="nav-book">Book Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+
+  <!--
+    PHOTO INSTRUCTIONS:
+    Replace the placeholder below with a real hero photo of the ranch.
+    1. Add your photo file to the same folder as this HTML file (e.g., "hero.jpg")
+    2. Uncomment the <img> tag below and update the src to match your filename
+    3. Delete the .hero-photo-placeholder div
+  -->
+  <img class="hero-photo" src="4C0A3410.jpeg" alt="Riding at SDP Buffalo Ranch" />
+
+  <div class="hero-content">
+    <!--
+      LOGO: The logo image is included below.
+      File: logo.png (copy your logo image to the same folder as this HTML file)
+    -->
+    <img class="hero-logo" src="logo.png" alt="The Little Wrangler Ranch Camp Logo" />
+
+    <p class="hero-tagline">SDP Buffalo Ranch &mdash; Fort Worth, Texas</p>
+    <h1 class="hero-title">Little Wrangler<br/>Ranch Camp</h1>
+    <p class="hero-subtitle">One-on-one horseback riding, ranch life adventures, and memories that last a lifetime &mdash; for kids ages 5&ndash;12.</p>
+
+    <div class="hero-cta">
+      <a href="#packages" class="btn btn-gold">View Packages</a>
+      <a href="#contact" class="btn btn-outline">Book a Week</a>
+    </div>
+  </div>
+
+  <div class="hero-badges">
+    <div class="hero-badge">
+      <span class="hero-badge-num">Ages<br/>5–12</span>
+      <span class="hero-badge-label">Beginner Friendly</span>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-num">1-on-1</span>
+      <span class="hero-badge-label">Instruction Every Day</span>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-num">Mon–Fri</span>
+      <span class="hero-badge-label">Weekly Sessions</span>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-num">Limited</span>
+      <span class="hero-badge-label">Spots Available</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══════════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="photo-frame fade-up">
+        <img src="IMG_3169.jpeg" alt="Maggie at SDP Buffalo Ranch" />
+        <div class="photo-frame-accent"></div>
+      </div>
+
+      <div class="about-text fade-up">
+        <p class="section-label">Meet Your Counselor</p>
+        <h2 class="section-title">Hi, I'm Maggie!</h2>
+        <p>I've grown up around horses my whole life right here at SDP Buffalo Ranch in Fort Worth. Horses have taught me patience, confidence, and responsibility — and I can't wait to share that with your kids.</p>
+        <p>The Little Wrangler Ranch Camp is my very own summer program where I give kids a real, hands-on ranch experience. Every camper gets my undivided attention with true one-on-one instruction — no crowds, no waiting, just you, me, and the horses.</p>
+        <p>Whether your child has never been near a horse or just wants to build their skills, I'll meet them exactly where they are and make sure they leave feeling proud, confident, and excited about ranch life.</p>
+
+        <div style="margin-top: 2rem;">
+          <div class="about-detail">
+            <span class="about-detail-icon">📍</span>
+            <div class="about-detail-text">
+              <strong>Location</strong>
+              <span>SDP Buffalo Ranch &mdash; 1790 FM Road 2871, Fort Worth, Texas 76126</span>
+            </div>
+          </div>
+          <div class="about-detail">
+            <span class="about-detail-icon">📅</span>
+            <div class="about-detail-text">
+              <strong>Schedule</strong>
+              <span>Monday through Friday &mdash; flexible scheduling available for summer travel</span>
+            </div>
+          </div>
+          <div class="about-detail">
+            <span class="about-detail-icon">🎯</span>
+            <div class="about-detail-text">
+              <strong>Who It's For</strong>
+              <span>Ages 5–12 &mdash; complete beginners welcome and encouraged!</span>
+            </div>
+          </div>
+          <div class="about-detail">
+            <span class="about-detail-icon">🐴</span>
+            <div class="about-detail-text">
+              <strong>Structure</strong>
+              <span>One camper per time slot &mdash; fully personalized instruction every day</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VIDEO ROW -->
+    <div class="about-video-row fade-up">
+      <div class="video-wrap">
+        <video
+          controls
+          preload="metadata"
+          playsinline
+          poster=""
+        >
+          <source src="Maggie and SDP Flashy Rebel.mov" type="video/quicktime" />
+          <source src="Maggie and SDP Flashy Rebel.mov" type="video/mp4" />
+          Your browser doesn't support this video format.
+        </video>
+      </div>
+      <div class="video-caption">
+        <p class="section-label">See It in Action</p>
+        <h4>Maggie &amp; SDP Flashy Rebel</h4>
+        <p>Get a real look at the ranch, the horses, and the one-on-one experience your child will have. This is what Little Wrangler Ranch Camp is all about.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ PACKAGES ═══════════════════════════════════════ -->
+<section class="packages" id="packages">
+  <div class="container">
+    <div class="packages-header fade-up">
+      <p class="section-label">Choose Your Adventure</p>
+      <h2 class="section-title">Camp Packages</h2>
+      <p class="section-subtitle">Every package includes one-on-one instruction, safety supervision, snacks, water breaks, and an end-of-week keepsake. Pick the experience that's right for your wrangler.</p>
+    </div>
+
+    <div class="packages-grid">
+
+      <!-- STANDARD -->
+      <div class="package-card fade-up">
+        <div class="package-header">
+          <div class="package-icon">🤠</div>
+          <div class="package-name">Standard</div>
+          <div class="package-duration">3 Hours/Day &bull; Mon–Fri</div>
+          <div class="package-price">
+            <span class="package-price-num">$425</span>
+            <span class="package-price-per">/week</span>
+          </div>
+        </div>
+        <div class="package-body">
+          <ul class="package-features">
+            <li><span class="check">✦</span> Daily one-on-one riding lessons</li>
+            <li><span class="check">✦</span> Mounting, steering &amp; stopping</li>
+            <li><span class="check">✦</span> Horse safety &amp; horsemanship</li>
+            <li><span class="check">✦</span> Grooming &amp; horse care</li>
+            <li><span class="check">✦</span> Tack &amp; equipment lessons</li>
+            <li><span class="check">✦</span> Ranch chores &amp; responsibility</li>
+            <li><span class="check">✦</span> Supervised beginner trail ride</li>
+            <li><span class="check">✦</span> Friday parent showcase</li>
+            <li><span class="check">✦</span> Junior Ranch Hand certificate</li>
+            <li><span class="check">✦</span> Camper photos with horse</li>
+          </ul>
+        </div>
+        <div class="package-footer">
+          <a href="#contact" class="btn btn-primary">Book Standard</a>
+        </div>
+      </div>
+
+      <!-- PREMIUM (featured) -->
+      <div class="package-card featured fade-up">
+        <div class="featured-badge">Most Popular</div>
+        <div class="package-header">
+          <div class="package-icon">⭐</div>
+          <div class="package-name">Premium</div>
+          <div class="package-duration">3 Hours/Day &bull; Mon–Fri</div>
+          <div class="package-price">
+            <span class="package-price-num">$625</span>
+            <span class="package-price-per">/week</span>
+          </div>
+        </div>
+        <div class="package-body">
+          <ul class="package-features">
+            <li><span class="check">✦</span> Everything in Standard, plus:</li>
+            <li><span class="check">✦</span> Meet &amp; learn about ranch animals</li>
+            <li><span class="check">✦</span> Extra riding instruction daily</li>
+            <li><span class="check">✦</span> "Horse of the Week" experience</li>
+            <li><span class="check">✦</span> Same horse all week — build a bond</li>
+            <li><span class="check">✦</span> Personalized riding coaching</li>
+            <li><span class="check">✦</span> Premium camp photos package</li>
+            <li><span class="check">✦</span> Extra grooming &amp; tack time</li>
+            <li><span class="check">✦</span> Horse bonding activities</li>
+          </ul>
+        </div>
+        <div class="package-footer">
+          <a href="#contact" class="btn btn-gold">Book Premium</a>
+        </div>
+      </div>
+
+      <!-- VIP -->
+      <div class="package-card fade-up">
+        <div class="package-header">
+          <div class="package-icon">🏆</div>
+          <div class="package-name">VIP Wrangler</div>
+          <div class="package-duration">4 Hours/Day &bull; 8AM–12PM</div>
+          <div class="package-price">
+            <span class="package-price-num">$950</span>
+            <span class="package-price-per">/week</span>
+          </div>
+        </div>
+        <div class="package-body">
+          <ul class="package-features">
+            <li><span class="check">✦</span> Everything in Standard &amp; Premium, plus:</li>
+            <li><span class="check">✦</span> 4 full hours daily (8AM–12PM)</li>
+            <li><span class="check">✦</span> Cowboy/Cowgirl Starter Kit included</li>
+            <li><span class="check">✦</span> Feed mini highland cows</li>
+            <li><span class="check">✦</span> Handle chickens &amp; feed ducks</li>
+            <li><span class="check">✦</span> Advanced beginner riding exercises</li>
+            <li><span class="check">✦</span> Special end-of-week sunset ride</li>
+            <li><span class="check">✦</span> Optional parent sunset ride</li>
+            <li><span class="check">✦</span> Scenic ranch photos</li>
+          </ul>
+        </div>
+        <div class="package-footer">
+          <a href="#contact" class="btn btn-primary">Book VIP</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ADD-ONS ═════════════════════════════════════════ -->
+<section class="addons" id="addons">
+  <div class="container">
+    <div class="addons-header fade-up">
+      <p class="section-label">Customize Your Experience</p>
+      <h2 class="section-title">Add-On Options</h2>
+    </div>
+
+    <div class="addons-grid">
+      <div class="addon-card fade-up">
+        <div class="addon-icon">📸</div>
+        <div class="addon-name">Professional Photos</div>
+        <div class="addon-price">$75</div>
+        <div class="addon-desc">Studio-quality riding photos and horse portraits — memories to frame forever</div>
+      </div>
+      <div class="addon-card fade-up">
+        <div class="addon-icon">🤠</div>
+        <div class="addon-name">Cowboy/Cowgirl Starter Kit</div>
+        <div class="addon-price">Included in VIP</div>
+        <div class="addon-desc">Bandana, ranch t-shirt, and a treat bag for the horses</div>
+      </div>
+      <div class="addon-card fade-up">
+        <div class="addon-icon">⏱️</div>
+        <div class="addon-name">Extra Riding Hour</div>
+        <div class="addon-price">$100</div>
+        <div class="addon-desc">Can't get enough? Add an additional hour of riding instruction</div>
+      </div>
+      <div class="addon-card fade-up">
+        <div class="addon-icon">🐴</div>
+        <div class="addon-name">Parent Ride Add-On</div>
+        <div class="addon-price">$100</div>
+        <div class="addon-desc">Parents join the fun — a guided ride experience on the ranch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DAILY LIFE ═════════════════════════════════════ -->
+<section class="daily" id="daily">
+  <div class="container">
+    <div class="daily-header fade-up">
+      <p class="section-label">What to Expect</p>
+      <h2 class="section-title">A Day at the Ranch</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">Every day is a new adventure. Here's a taste of what your little wrangler will experience.</p>
+    </div>
+
+    <div class="daily-grid">
+      <div class="daily-card fade-up">
+        <div class="daily-card-icon">🐴</div>
+        <h4>Riding Lessons</h4>
+        <p>One-on-one instruction covering mounting, steering, stopping, and building confidence in the saddle — at your child's pace.</p>
+      </div>
+      <div class="daily-card fade-up">
+        <div class="daily-card-icon">🖌️</div>
+        <h4>Grooming &amp; Care</h4>
+        <p>Brushing, mane care, and learning how to cool down and bathe horses — hands-on care that builds a real bond.</p>
+      </div>
+      <div class="daily-card fade-up">
+        <div class="daily-card-icon">🎒</div>
+        <h4>Tack &amp; Equipment</h4>
+        <p>Learning saddle and bridle names, helping tack a horse up, and understanding tack safety and organization.</p>
+      </div>
+      <div class="daily-card fade-up">
+        <div class="daily-card-icon">🌾</div>
+        <h4>Ranch Chores</h4>
+        <p>Cleaning stalls, filling water buckets, feeding basics — real ranch responsibility that builds character.</p>
+      </div>
+      <div class="daily-card fade-up">
+        <div class="daily-card-icon">🌿</div>
+        <h4>Trail Rides</h4>
+        <p>Supervised beginner trail rides that build outdoor riding confidence and a love for the open range.</p>
+      </div>
+      <div class="daily-card fade-up">
+        <div class="daily-card-icon">🏅</div>
+        <h4>Friday Showcase</h4>
+        <p>Parents are invited to watch a special end-of-week showcase where campers show off everything they've learned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═════════════════════════════════════════ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-up">
+      <p class="section-label">Life at the Ranch</p>
+      <h2 class="section-title">Photo Gallery</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">A glimpse into the adventures waiting for your wrangler.</p>
+    </div>
+
+    <!--
+      GALLERY PHOTO INSTRUCTIONS:
+      Replace each placeholder below with real ranch/camp photos.
+      Save your photos in the same folder as this HTML file and update the src attributes.
+      Suggested sizes: gallery photos work best at 800×600px or similar landscape ratio.
+
+      Example:
+        <div class="gallery-item">
+          <img src="photo1.jpg" alt="Riding lesson at the ranch" />
+        </div>
+    -->
+    <div class="gallery-grid fade-up">
+      <div class="gallery-item tall">
+        <img src="IMG_3217.jpeg" alt="Maggie leading a horse in the barn at SDP Buffalo Ranch" />
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_3264.jpeg" alt="Kids riding horses in the arena at Little Wrangler Ranch Camp" />
+      </div>
+      <div class="gallery-item">
+        <img src="4C0A3410.jpeg" alt="Riding a pony at SDP Buffalo Ranch" />
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_5995.jpeg" alt="Mini highland cow at SDP Buffalo Ranch" />
+      </div>
+      <div class="gallery-item">
+        <img src="77557624285__F689C390-3154-48EF-B241-A9CF30C39B66.jpeg" alt="Fluffy mini highland cow at the ranch" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SAFETY ══════════════════════════════════════════ -->
+<section class="safety" id="safety">
+  <div class="container">
+    <div class="safety-inner">
+
+      <div class="safety-text fade-up">
+        <p class="section-label">Your Child's Safety Is Everything</p>
+        <h2 class="section-title">Safe, Supervised &amp; Fun</h2>
+        <ul class="safety-list">
+          <li>True one-on-one instruction — your child is never alone with a horse</li>
+          <li>Helmets are strongly encouraged for all riding activities</li>
+          <li>Beginner-friendly, gentle horses selected for children</li>
+          <li>Safety-first environment with ranch rules communicated on day one</li>
+          <li>Regular water breaks and included snack break each session</li>
+          <li>Parent communication throughout the week — you're always in the loop</li>
+          <li>Allergy-aware — please share any food allergies when booking</li>
+          <li>Please bring your child's water bottle each day</li>
+        </ul>
+      </div>
+
+      <div class="waiver-card fade-up">
+        <div class="waiver-icon">📋</div>
+        <h4>Liability Waiver Required</h4>
+        <p>All campers must have a completed and signed SDP Buffalo Ranch liability waiver on file before their first day of camp. This is required by Texas law for farm animal activities.</p>
+        <p>Download the waiver below, complete it at home, and bring it signed on the first day.</p>
+        <a href="waiver.pdf" download class="btn btn-gold" style="display:inline-flex;align-items:center;gap:0.5rem;">
+          ⬇ Download Waiver (PDF)
+        </a>
+        <p style="margin-top:1rem;font-size:0.8rem;opacity:0.7;">Under Texas law (Chapter 87, Civil Practice and Remedies Code), a farm animal professional is not liable for injuries resulting from the inherent risks of farm animal activities.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POLICIES ════════════════════════════════════════ -->
+<section class="policies" id="policies">
+  <div class="container">
+    <div class="policies-header fade-up">
+      <p class="section-label">Good to Know</p>
+      <h2 class="section-title">Policies &amp; Info</h2>
+    </div>
+
+    <div class="policies-grid">
+      <div class="policy-card fade-up">
+        <div class="policy-card-icon">💳</div>
+        <h4>Deposit &amp; Payment</h4>
+        <p>A 50% non-refundable deposit is required to reserve your spot. The remaining balance is due before your child's first day of camp.</p>
+      </div>
+      <div class="policy-card fade-up">
+        <div class="policy-card-icon">🔄</div>
+        <h4>Cancellation Policy</h4>
+        <p>Deposits are non-refundable due to limited availability and one-on-one scheduling. Cancellations made at least 30 days before camp may be eligible for a refund — contact Maggie to discuss.</p>
+      </div>
+      <div class="policy-card fade-up">
+        <div class="policy-card-icon">📅</div>
+        <h4>Flexible Scheduling</h4>
+        <p>Summer plans change! Flexible scheduling options are available to accommodate travel and family schedules. Just reach out and we'll make it work.</p>
+      </div>
+      <div class="policy-card fade-up">
+        <div class="policy-card-icon">🍎</div>
+        <h4>Snacks &amp; Allergies</h4>
+        <p>Snacks are included each session. Please notify Maggie of any food allergies when booking. Always bring your child's own water bottle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═════════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+
+      <div class="contact-info fade-up">
+        <p class="section-label">Ready to Ride?</p>
+        <h2 class="section-title">Book a Week</h2>
+        <p class="section-subtitle">Spots are limited — only one camper per time slot. Reach out today to reserve your child's week at the ranch!</p>
+
+        <div style="margin-top: 2rem;">
+          <div class="contact-detail">
+            <span class="contact-detail-icon">📞</span>
+            <div>
+              <strong style="display:block;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--tan);font-weight:700;margin-bottom:0.2rem;">Call or Text</strong>
+              <a href="tel:+18172016591">(817) 201-6591</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon">✉️</span>
+            <div>
+              <strong style="display:block;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--tan);font-weight:700;margin-bottom:0.2rem;">Email</strong>
+              <a href="mailto:maggieplummer@icloud.com">maggieplummer@icloud.com</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon">📍</span>
+            <div>
+              <strong style="display:block;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--tan);font-weight:700;margin-bottom:0.2rem;">Location</strong>
+              <span style="color:var(--brown);">SDP Buffalo Ranch<br/>1790 FM Road 2871<br/>Fort Worth, Texas 76126</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card fade-up">
+        <h3>Send a Message</h3>
+        <p>Fill out the form and Maggie will get back to you within 24 hours to confirm your week!</p>
+
+        <!--
+          FORMSPREE SETUP INSTRUCTIONS:
+          1. Go to https://formspree.io and create a free account
+          2. Click "New Form", give it a name like "Little Wrangler Camp"
+          3. Copy your unique form endpoint URL (looks like: https://formspree.io/f/xxxxxxxx)
+          4. Replace "YOUR_FORMSPREE_ID" in the action below with your actual form ID
+          5. Done! Submissions will be emailed directly to maggieplummer@icloud.com
+        -->
+        <form
+          action="https://formspree.io/f/xredzllg"
+          method="POST"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="parent-name">Parent Name *</label>
+              <input type="text" id="parent-name" name="parent_name" required placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="child-name">Child's Name *</label>
+              <input type="text" id="child-name" name="child_name" required placeholder="Camper's name" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="child-age">Child's Age *</label>
+              <select id="child-age" name="child_age" required>
+                <option value="" disabled selected>Select age</option>
+                <option>5</option><option>6</option><option>7</option>
+                <option>8</option><option>9</option><option>10</option>
+                <option>11</option><option>12</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="package">Package Interest *</label>
+              <select id="package" name="package" required>
+                <option value="" disabled selected>Select package</option>
+                <option>Standard – $425</option>
+                <option>Premium – $625</option>
+                <option>VIP Wrangler – $950</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(817) 000-0000" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dates">Preferred Week(s) or Dates</label>
+            <input type="text" id="dates" name="preferred_dates" placeholder="e.g., July 7–11 or anytime in June" />
+          </div>
+
+          <div class="form-group">
+            <label for="allergies">Allergies or Special Notes</label>
+            <textarea id="allergies" name="notes" placeholder="Food allergies, questions, anything we should know..."></textarea>
+          </div>
+
+          <!-- Honeypot spam prevention -->
+          <input type="text" name="_gotcha" style="display:none" />
+
+          <button type="submit" class="btn btn-primary form-submit">Send Message &#x1F40E;</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">Little Wrangler Ranch Camp</div>
+    <div class="footer-sub">SDP Buffalo Ranch &mdash; Fort Worth, Texas</div>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#about">About</a>
+      <a href="#packages">Packages</a>
+      <a href="#daily">Camp Life</a>
+      <a href="#safety">Safety</a>
+      <a href="waiver.pdf" download>Download Waiver</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <hr class="footer-divider" />
+
+    <p class="footer-copy">
+      &copy; 2025 The Little Wrangler Ranch Camp &mdash; SDP Buffalo Ranch, Fort Worth, TX &bull;
+      <a href="tel:+18172016591" style="color:inherit;">(817) 201-6591</a> &bull;
+      <a href="mailto:maggieplummer@icloud.com" style="color:inherit;">maggieplummer@icloud.com</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═════════════════════════════════════════ -->
+<script>
+  // Scroll-triggered fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
